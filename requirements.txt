@@ -1,0 +1,19 @@
+# Core engine has ZERO required dependencies - it runs on the stdlib alone.
+# Install extras for the surfaces you need:
+#
+#   pip install -e ".[api]"        # FastAPI + uvicorn
+#   pip install -e ".[dashboard]"  # Streamlit console
+#   pip install -e ".[aws]"        # boto3 + Anthropic Bedrock SDK
+#   pip install -e ".[pdf]"        # reportlab PDF reports
+#   pip install -e ".[all]"        # everything, incl. test deps
+#
+# Or install the pinned set below for a full local setup:
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2
+streamlit>=1.30
+boto3>=1.34
+anthropic[bedrock]>=0.40
+reportlab>=4.0
+pytest>=8
+httpx>=0.27

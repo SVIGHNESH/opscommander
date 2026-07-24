@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opscommander"
+version = "0.1.0"
+description = "Multi-agent cloud incident response system on AWS Bedrock"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2"]
+dashboard = ["streamlit>=1.30"]
+aws = ["boto3>=1.34", "anthropic[bedrock]>=0.40"]
+pdf = ["reportlab>=4.0"]
+dev = ["pytest>=8", "httpx>=0.27"]
+all = [
+  "fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2",
+  "streamlit>=1.30", "boto3>=1.34", "anthropic[bedrock]>=0.40",
+  "reportlab>=4.0", "pytest>=8", "httpx>=0.27",
+]
+
+[project.scripts]
+opscommander-seed = "scripts.seed_incident:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
